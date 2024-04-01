@@ -1,1 +1,7 @@
-theme: jekyll-theme-minimal
+title: Your Site Title
+description: "This is my personal website."
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site
+
+# Build settings
+theme: minima # or any other theme

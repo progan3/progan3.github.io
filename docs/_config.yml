@@ -1,1 +1,10 @@
 theme: jekyll-theme-modernist
+
+navigation:
+  - name: Home
+    link: /
+  - name: Educational Background
+    link: /education/
+  - name: Professional Description
+    link: /professional/
+

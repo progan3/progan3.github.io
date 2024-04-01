@@ -1,39 +1,81 @@
----
-layout: default
-title: Home
----
-<nav>
-  <ul>
-    <li><a href="#home">Home</a></li>
-    <li><a href="#education">Educational Background</a></li>
-    <li><a href="#professional">Professional Description</a></li>
-  </ul>
-</nav>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Site</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+        nav {
+            flex: 0 0 200px; /* Adjust width of the nav as needed */
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+        section {
+            flex-grow: 1;
+            padding: 20px;
+        }
+        /* Initially hide all sections */
+        section:not(:first-of-type) {
+            display: none;
+        }
+    </style>
+</head>
+<body>
 
-<section id="home">
-  <h1>Welcome to My Website</h1>
-  <p>This is the home section.</p>
-</section>
+<div class="container">
+    <nav>
+        <ul>
+            <li><a href="#home" onclick="showSection('home')">Home</a></li>
+            <li><a href="#education" onclick="showSection('education')">Educational Background</a></li>
+            <li><a href="#professional" onclick="showSection('professional')">Professional Description</a></li>
+        </ul>
+    </nav>
 
-<section id="education" style="display:none;">
-  <h1>Educational Background</h1>
-  <p>Details about my educational background.</p>
-</section>
+    <div>
+        <section id="home">
+            <h1>Welcome to My Website</h1>
+            <p>This is the home section.</p>
+        </section>
 
-<section id="professional" style="display:none;">
-  <h1>Professional Description</h1>
-  <p>Information on my professional experience.</p>
-</section>
+        <section id="education">
+            <h1>Educational Background</h1>
+            <p>Details about my educational background.</p>
+        </section>
+
+        <section id="professional">
+            <h1>Professional Description</h1>
+            <p>Information on my professional experience.</p>
+        </section>
+    </div>
+</div>
 
 <script>
-  // Simple script to show/hide sections
-  document.querySelectorAll('nav a').forEach(link => {
-    link.addEventListener('click', function(e) {
-      e.preventDefault();
-      let targetSection = document.querySelector(this.getAttribute('href'));
-      document.querySelectorAll('section').forEach(section => {
-        section.style.display = 'none';
-      });
+    function showSection(id) {
+        // Prevent the default anchor behavior
+        event.preventDefault();
+
+        // Hide all sections
+        document.querySelectorAll('section').forEach(function(section) {
+            section.style.display = 'none';
+        });
+
+        // Show the selected section
+        document.getElementById(id).style.display = 'block';
+    }
+</script>
+
+</body>
+</html>
+
       targetSection.style.display = 'block';
     });
   });
